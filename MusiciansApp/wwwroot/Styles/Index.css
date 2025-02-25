@@ -1,0 +1,12 @@
+﻿.reg-auth-buttons button {
+    background-color: #fff;
+    color: #333;
+    padding: 8px 15px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.reg-auth-buttons button:hover {
+        background-color: #ddd;
+}

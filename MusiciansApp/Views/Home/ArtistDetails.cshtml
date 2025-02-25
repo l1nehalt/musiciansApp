@@ -1,0 +1,83 @@
+﻿@model MusiciansApp.Model.Artist
+
+<link href="~/Styles/ArtistsDetails.css" rel="stylesheet" />
+
+<div class="artist-container">
+    <h2>@Model.Name</h2>
+    <img src="@Model.ImagePath" alt="@Model.Name" class="artist-image" />
+
+    <div class="content-container">
+        <div class="albums-container">
+            <h3>Альбомы</h3>
+            @if (Model.Albums != null && Model.Albums.Any())
+            {
+                <ul class="album-list">
+                    @foreach (var album in Model.Albums)
+                    {
+                        <li class="album-item">
+                            <h4>@album.Title (@album.ReleaseDate.ToString("yyyy"))</h4>
+                            <img src="@album.ImagePath" alt="@album.Title" class="album-cover" />
+
+                            @if (album.Songs != null && album.Songs.Any())
+                            {
+                                <ul class="song-list">
+                                    @foreach (var song in album.Songs)
+                                    {
+                                        <li>
+                                            @song.Title
+                                            @if (!string.IsNullOrEmpty(song.FilePath))
+                                            {
+                                                <div>
+                                                    <audio controls>
+                                                        <source src="@song.FilePath" type="audio/mpeg">
+                                                    </audio>
+                                                </div>
+                                            }
+                                        </li>
+                                    }
+                                </ul>
+                            }
+                            else
+                            {
+                                <p>Песни в этом альбоме не найдены.</p>
+                            }
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>Альбомы для этого исполнителя не найдены.</p>
+            }
+        </div>
+
+        <div class="singles-container">
+            <h3>Синглы и отдельные треки</h3>
+            @if (Model.Singles != null && Model.Singles.Any())
+            {
+                <ul class="single-list">
+                    @foreach (var song in Model.Singles)
+                    {
+                        <li>
+                            <img src="@song.ImagePath" alt="@song.Title" class="single-image" />
+                            @song.Title
+
+                            @if (!string.IsNullOrEmpty(song.FilePath))
+                            {
+                                <div>
+                                    <audio controls>
+                                        <source src="@song.FilePath" type="audio/mpeg">
+                                    </audio>
+                                </div>
+                            }
+                        </li>
+                    }
+                </ul>
+            }
+            else
+            {
+                <p>У этого исполнителя нет отдельных треков.</p>
+            }
+        </div>
+    </div>
+</div>

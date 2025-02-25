@@ -1,0 +1,51 @@
+﻿@model MusiciansApp.Model.Song
+
+<link href="~/Styles/SongDetails.css" rel="stylesheet" />
+
+<div class="track-details-container">
+
+    <div class="track-info">
+        <h3>@Model.Title</h3>
+
+        @if (Model.Artist != null)
+        {
+            <p><strong>Исполнитель:</strong> <a href="@Url.Action("ArtistDetails", "Home", new { artistId = Model.Artist.Id })">@Model.Artist.Name</a></p>
+        }
+        else
+        {
+            <p><strong>Исполнитель:</strong> Не указан</p>
+        }
+
+        @if (Model.Album != null)
+        {
+            <p><strong>Альбом:</strong> <a href="@Url.Action("AlbumDetails", "Home", new { albumId = Model.Album.Id })">@Model.Album.Title</a></p>
+        }
+        else
+        {
+            <p><strong>Альбом:</strong> Не указан</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.FilePath))
+        {
+            <div>
+                <audio controls>
+                    <source src="@Model.FilePath" type="audio/mpeg">
+                    Ваш браузер не поддерживает воспроизведение аудио.
+                </audio>
+            </div>
+        }
+        else
+        {
+            <p>Аудиофайл недоступен.</p>
+        }
+
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Model.ImagePath" alt="@Model.Title" class="track-cover" />
+        }
+    </div>
+
+    <div class="back-link">
+        <a href="@Url.Action("Index", "Home")">Назад на главную</a>
+    </div>
+</div>

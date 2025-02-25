@@ -1,0 +1,41 @@
+﻿.album-details-container {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.album-info {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.album-cover {
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+}
+
+.track-list {
+    list-style: none;
+    padding: 0;
+}
+
+.track-list li {
+        margin-bottom: 15px;
+ }
+
+.back-link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+h2, h3 {
+    text-align: center;
+}
+
+audio {
+    margin-top: 10px;
+}

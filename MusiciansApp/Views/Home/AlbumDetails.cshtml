@@ -1,0 +1,53 @@
+﻿@model MusiciansApp.Model.Album
+
+<link href="~/Styles/AlbumDetails.css" rel="stylesheet" />
+
+<div class="album-details-container">
+    <h2 class="album-title">@Model.Title</h2>
+
+    @if (Model.Artist != null)
+    {
+        <p><strong>Исполнитель:</strong> <a href="@Url.Action("ArtistDetails", "Home", new { artistId = Model.Artist.Id })">@Model.Artist.Name</a></p>
+    }
+    else
+    {
+        <p><strong>Исполнитель:</strong> Не указан</p>
+    }
+
+    <div class="album-info">
+        @if (!string.IsNullOrEmpty(Model.ImagePath))
+        {
+            <img src="@Model.ImagePath" alt="@Model.Title" class="album-cover" />
+        }
+    </div>
+
+    <h3 class="track-list-title">Список треков</h3>
+    @if (Model.Songs != null && Model.Songs.Any())
+    {
+        <ul class="track-list">
+            @foreach (var track in Model.Songs)
+            {
+                <li>
+                    @track.Title
+                    @if (!string.IsNullOrEmpty(track.FilePath))
+                    {
+                        <div>
+                            <audio controls>
+                                <source src="@track.FilePath" type="audio/mpeg">
+                                Ваш браузер не поддерживает воспроизведение аудио.
+                            </audio>
+                        </div>
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Треки для этого альбома не найдены.</p>
+    }
+
+    <div class="back-link">
+        <a href="@Url.Action("Index", "Home")">На главную</a>
+    </div>
+</div>

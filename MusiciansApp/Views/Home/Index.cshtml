@@ -1,0 +1,45 @@
+﻿@{
+    ViewData["Title"] = "Поиск исполнителя";
+}
+<link href="~/Styles/Index.css" rel="stylesheet"/>
+
+<div class="reg-auth-buttons">
+    <div>
+        <form action="/Users/Register" method="get">
+            <button type="submit">Регистрация</button>
+        </form>
+    </div>
+
+    <div>
+        <form action="/Users/Login" method="get">
+            <button type="submit">Войти</button>
+        </form>
+    </div>
+</div>
+
+<div class="container">
+    <form action="/Home/Search" method="get">
+        <input type="text" name="query">
+        <button type="submit">Найти</button>
+    </form>
+</div>
+
+<div>
+    <form action="/Tracks/SearchTrack" method="get">
+        <input type="text" placeholder="Введите имя музыканта" name="name">
+        <button type="submit">Найти</button>
+    </form>
+</div>
+
+<br/>
+
+
+@if (TempData["SuccessMessageLogin"] != null)
+{
+    <p>@TempData["SuccessMessageLogin"]</p>
+}
+
+@if (TempData["SuccessMessageTrack"] != null)
+{
+    <p>@TempData["SuccessMessageTrack"]</p>
+}

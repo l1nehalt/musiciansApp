@@ -1,0 +1,128 @@
+﻿.artist-container {
+    text-align: center;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    color: #333;
+}
+
+.artist-image {
+    width: 220px;
+    height: auto;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.8rem;
+    color: #555;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 40px;
+}
+
+.albums-container,
+.singles-container {
+    width: 48%;
+    text-align: left;
+    padding: 25px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); 
+    border-radius: 12px;
+    background-color: #fafafa;
+    margin-bottom: 30px;
+    transition: all 0.3s ease-in-out;
+}
+
+.albums-container:hover, .singles-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.album-list, .single-list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.album-item, .single-item {
+    margin-bottom: 30px;
+}
+
+.album-cover, .single-image {
+    width: 100%;
+    max-width: 180px;
+    height: auto;
+    display: block;
+    margin-top: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+}
+
+.album-cover:hover, .single-image:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.song-list {
+    list-style-type: none;
+    padding-left: 20px;
+    margin-top: 10px;
+}
+
+audio {
+    margin-top: 15px;
+    width: 100%;
+    border-radius: 5px;
+    outline: none;
+}
+
+p {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 15px;
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .albums-container,
+    .singles-container {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .artist-image {
+        width: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+
+    .album-cover, .single-image {
+        max-width: 120px;
+    }
+}

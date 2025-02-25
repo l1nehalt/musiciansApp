@@ -1,0 +1,38 @@
+﻿@model MusiciansApp.Model.User
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link rel="stylesheet" href="~/Styles/Login.css">
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Войти в аккаунт</h2>
+            <form asp-action="Login" asp-controller="Users">
+                <div class="form-group">
+                    <label asp-for="UserName">Имя пользователя</label>
+                    <input asp-for="UserName" name="name" type="text" placeholder="Введите имя пользователя" />
+                </div>
+                <div class="form-group">
+                    <label asp-for="Password">Пароль</label>
+                    <input asp-for="Password" name="password" type="password" placeholder="Введите пароль">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="auth-button">Войти</button>
+                </div>
+                <p class="register-link">Нет аккаунта? <a asp-action="Register" asp-controller="Users">Зарегистрироваться</a></p>
+            </form>
+        </div>
+    </div>
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <p>@TempData["ErrorMessage"]</p>
+    }
+</body>
+</html>

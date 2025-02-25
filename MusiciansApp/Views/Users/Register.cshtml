@@ -1,0 +1,47 @@
+﻿@model MusiciansApp.Model.User
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link rel="stylesheet" href="~/Styles/Register.css">
+
+</head>
+<body>
+    <div class="auth-container">
+        <div class="auth-box">
+            <h2>Регистрация</h2>
+
+            <form asp-controller="Users" asp-action="Register" method="post">
+
+                <div class="form-group">
+                    <label asp-for="UserName">Имя пользователя</label>
+                    <input asp-for="UserName" placeholder="Введите имя пользователя" />
+                    <span asp-validation-for="UserName" class="text-danger" ></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Email">Email</label>
+                    <input asp-for="Email"  placeholder="Введите email" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Password">Пароль</label>
+                    <input asp-for="Password" type="password" placeholder="Введите пароль" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+             
+                <div class="form-group">
+                    <button type="submit" class="auth-button">Зарегистрироваться</button>
+                </div>
+                <p class="login-link">Уже есть аккаунт? <a asp-action="Login" asp-controller="Users">Войти</a></p>
+            </form>
+
+        </div>
+    </div>
+</body>
+</html>
